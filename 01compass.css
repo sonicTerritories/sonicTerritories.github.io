@@ -1,0 +1,23 @@
+/*this code handles visual formatting
+to learn css (cascading style sheets), go here:
+http://www.w3schools.com/css/
+*/
+
+#compass_content {
+	/*set the font face and style here*/
+	font-family: menlo, monospace;
+	/*set the font size here (3vmax = 30% of viewing space)*/
+	font-size: 3vmax;
+	/*set text color here*/
+	color: #FFFFFF;
+	/* set the text alignment (center, left or right)*/
+	text-align: left;
+	/* set the width of the text box*/
+	width: 100%;
+	height: 100%;
+	/*this centers the text box*/
+	margin: 0;
+
+	word-wrap: break-word;
+}
+
