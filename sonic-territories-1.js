@@ -69,11 +69,11 @@ function play(){
 function draw(){
     backgroundColor.setRed(128 + 128 * sin(millis() / 1000));
   background(backgroundColor);
-    playButton.position (windowWidth/2,windowHeight/2+60);
-    recordButton.position(windowWidth/2-45, windowHeight/2);
+    playButton.position (displayWidth/2,displayHeight/2+60);
+    recordButton.position(displayWidth/2-45, displayHeight/2);
 };
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(displayWidth, displayHeight);
 };
 
