@@ -39,11 +39,11 @@ function setup() {
 
 //BUTTONS
     recordButton = createButton('press + hold to record');
-    recordButton.position(0,0);
+    recordButton.position(windowWidth/2, windowHeight/2);
     recordButton.mousePressed(rec);
     recordButton.mouseReleased(stop);
     playButton = createButton('play');
-    playButton.position (10,10);
+    playButton.position (windowWidth/2-10,windowHeight/2-10);
     playButton.mousePressed(play);
         
 }

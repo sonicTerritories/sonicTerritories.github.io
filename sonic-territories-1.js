@@ -39,11 +39,11 @@ function setup() {
 
 //BUTTONS
     recordButton = createButton('press + hold to record');
-    recordButton.position(0,0);
+
     recordButton.mousePressed(rec);
     recordButton.mouseReleased(stop);
     playButton = createButton('play');
-    playButton.position (10,10);
+
     playButton.mousePressed(play);
         
 }
@@ -69,6 +69,8 @@ function play(){
 function draw(){
     backgroundColor.setRed(128 + 128 * sin(millis() / 1000));
   background(backgroundColor);
+    playButton.position (windowWidth/2,windowHeight/2+60);
+    recordButton.position(windowWidth/2-45, windowHeight/2);
 };
 
 function windowResized() {
