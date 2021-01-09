@@ -97,21 +97,23 @@ function play(){
 };
    
 function loops(){
-    looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
-    looper.start();
+    
 };
 
 function compassFilter(){
     soundX.connect(filter);
+    looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
+    looper.start();
 };
 
 function toggleCompassFilter(){
-    soundX.toggle(filter);
+    filter.toggle();
 };
 
 function stopLoops(){
     looper.stop();
     console.log('loop stopped');
+    soundX.stop();
 };
 
 function draw(){
