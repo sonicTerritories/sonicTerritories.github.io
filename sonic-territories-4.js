@@ -1,5 +1,6 @@
 var myBody = document.getElementsByTagName("body");
 
+/*access token:  */
 /*function success() {
     myBody[0].style.backgroundColor = "#000000";
     console.log("hiiiii");
@@ -110,7 +111,11 @@ function toggleCompassFilter(){
 };
 
 function stopLoops(){
+    if (looper.isPlaying) {
     looper.stop();
+  } else {
+    
+  }
     console.log('loop stopped');
 };
 
