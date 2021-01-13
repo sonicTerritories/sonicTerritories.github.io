@@ -100,6 +100,9 @@ function play(){
 function loops(){
     looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
     looper.start();
+    if (stopLoopButton.mousePressed()) {
+        looper.stop();
+    }
 };
 
 function compassFilter(){
@@ -117,11 +120,11 @@ function toggleCompassFilter(){
 };
 
 function stopLoops(){
- /   if (looper.isPlaying) {/
+ /*   if (looper.isPlaying) {*/
     looper.stop();
-  /} else if (soundX.isPlaying) {/
+  /*} else if (soundX.isPlaying) {*/
     soundX.stop();
-  /}/
+  /*}*/
     console.log('loop stopped');
 };
 
@@ -138,7 +141,8 @@ function draw(){
 
     let stringCompass = JSON.stringify(compassHeading)
     console.log(stringCompass);
-    freq = stringCompass*40+800
+    freq = 15000 
+    /* stringCompass*40+800 */
     text(stringCompass, displayWidth/2-90, displayHeight/2+90);
     text(freq, displayWidth/2+120, displayHeight/2+90);
     filter.freq(freq);
