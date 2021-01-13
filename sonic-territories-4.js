@@ -86,7 +86,7 @@ function rec(){
     }
 };
 
-function stop(){
+funcbar tabletion stop(){
     recorder.stop();
     text('Stopped', 20, 20); 
 };
@@ -103,18 +103,23 @@ function loops(){
 };
 
 function compassFilter(){
+    let stringNorth = JSON.stringify(soundX);
     soundX.connect(filter);
+    soundX.play();
 };
 
 function toggleCompassFilter(){
-    soundX.toggle(filter);
+    let stringNorth = JSON.stringify(soundX);
+    soundX.connect(filter);
+    soundX.play();
+    filter.toggle();
 };
 
 function stopLoops(){
     if (looper.isPlaying) {
     looper.stop();
-  } else {
-    
+  } else if (soundX.isPlaying) {
+    soundX.stop();
   }
     console.log('loop stopped');
 };
