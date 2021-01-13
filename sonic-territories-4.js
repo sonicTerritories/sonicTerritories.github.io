@@ -139,8 +139,8 @@ function draw(){
     let stringCompass = JSON.stringify(compassHeading)
     console.log(stringCompass);
     freq = stringCompass*40+800
-    print(stringCompass);
-    print(freq);
+    text(stringCompass, displayWidth/2-90, displayHeight/2+90);
+    text(freq, displayWidth/2+120, displayHeight/2+90);
     filter.freq(freq);
     filter.res(40);
 };
