@@ -86,7 +86,7 @@ function rec(){
     }
 };
 
-funcbar tabletion stop(){
+function stop(){
     recorder.stop();
     text('Stopped', 20, 20); 
 };
