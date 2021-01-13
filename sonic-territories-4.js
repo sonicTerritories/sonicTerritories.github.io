@@ -117,11 +117,11 @@ function toggleCompassFilter(){
 };
 
 function stopLoops(){
-    if (looper.isPlaying) {
+ /   if (looper.isPlaying) {/
     looper.stop();
-  } else if (soundX.isPlaying) {
+  /} else if (soundX.isPlaying) {/
     soundX.stop();
-  }
+  /}/
     console.log('loop stopped');
 };
 
@@ -139,6 +139,8 @@ function draw(){
     let stringCompass = JSON.stringify(compassHeading)
     console.log(stringCompass);
     freq = stringCompass*40+800
+    print(stringCompass);
+    print(freq);
     filter.freq(freq);
     filter.res(40);
 };
