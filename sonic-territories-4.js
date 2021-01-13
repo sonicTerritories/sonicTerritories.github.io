@@ -69,7 +69,7 @@ function setup() {
     loopButton = createButton('loop');
     loopButton.mousePressed(loops);
     stopLoopButton = createButton('stop');
-    stopLoopButton.mousePressed(stop);
+    stopLoopButton.mousePressed(stopLoops);
     compassFilterButton = createButton('compass filter');
     compassFilterButton.mousePressed(compassFilter);
     toggleCompassFilterButton = createButton('toggle filter');
@@ -103,15 +103,16 @@ function loops(){
 };
 
 function compassFilter(){
-    let stringNorth = JSON.stringify(soundX);
-    soundX.connect(filter);
-    soundX.play();
+    looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
+    looper.connect(filter);
+    looper.start();
+
 };
 
 function toggleCompassFilter(){
-    let stringNorth = JSON.stringify(soundX);
-    soundX.connect(filter);
-    soundX.play();
+    looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
+    looper.connect(filter);
+    looper.start();
     filter.toggle();
 };
 
