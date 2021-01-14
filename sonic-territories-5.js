@@ -117,10 +117,10 @@ function stopLoops(){
 };
 
 function draw(){
-    text(getAudioContext().state, width/2, height/2);
+    /*text(getAudioContext().state, width/2, height/2);
     function mousePressed() {
         userStartAudio();
-    }
+    }*/
 
     backgroundColor.setRed(128 + 128 * sin(millis() / 1000));
     background(backgroundColor);
