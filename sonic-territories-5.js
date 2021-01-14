@@ -77,7 +77,7 @@ function setup() {
 
     looper = new p5.SoundLoop();
 
-    let filter = new p5.filter(bandpass)   
+    let filter = new p5.BandPass();  
 };
     
 function rec(){
