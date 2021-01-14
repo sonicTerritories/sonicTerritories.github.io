@@ -39,7 +39,7 @@ var cnv;
 
 
 function setup() {
-     getAudioContext().suspend();
+
     //COMPASS
     window.addEventListener('deviceorientation', function(e) {
     var alpha = e.alpha;
