@@ -118,7 +118,6 @@ function stopLoops(){
 
 function draw(){
     text(getAudioContext().state, width/2, height/2);
-
     function mousePressed() {
         userStartAudio();
     }
@@ -135,6 +134,7 @@ let stringCompass = JSON.stringify(compassHeading)
     console.log(stringCompass);
     text(stringCompass, 10, 20);
     text(compassHeading, 20, 20);
+    text('adrian',30,20);
     
     freq = 15000
     filter.freq(freq);
