@@ -134,7 +134,7 @@ function draw(){
     stringCompass = JSON.stringify(compassHeading);
     text(stringCompass, 10, 20);
     text(compassHeading, 20, 40);
-    text('adrian', 30, 20);
+    text('adrian');
     
     freq = 1000
     filter.freq(freq);
