@@ -98,12 +98,13 @@ function play(){
 };
    
 function loops(){
-    looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
+    looper = new p5.SoundLoop(play());
     looper.start();
     if (stopLoopButton.mousePressed()) {
         looper.stop();
     }
-    looper.connect(filter)
+    let stringLoop = JSON.stringify(looper);
+    stringLoop.connect(filter)
 };
 
 
@@ -130,13 +131,12 @@ function draw(){
     stopLoopButton.position (displayWidth/2+45,displayHeight/2+120);
     
 
-let stringCompass = JSON.stringify(compassHeading)
-    console.log(stringCompass);
+    stringCompass = JSON.stringify(compassHeading);
     text(stringCompass, 10, 20);
-    text(compassHeading, 20, 20);
-    text('adrian',30,20);
+    text(compassHeading, 20, 40);
+    text('adrian', 30, 20);
     
-    freq = 15000
+    freq = 1000
     filter.freq(freq);
     filter.res(40);
 };
