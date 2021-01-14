@@ -39,6 +39,7 @@ var cnv;
 
 
 function setup() {
+     getAudioContext().suspend();
     //COMPASS
     window.addEventListener('deviceorientation', function(e) {
     var alpha = e.alpha;
@@ -72,14 +73,11 @@ function setup() {
     loopButton.mousePressed(loops);
     stopLoopButton = createButton('stop');
     stopLoopButton.mousePressed(stopLoops);
-    compassFilterButton = createButton('compass filter');
-    compassFilterButton.mousePressed(compassFilter);
-    toggleCompassFilterButton = createButton('toggle filter');
-    toggleCompassFilterButton.mousePressed(toggleCompassFilter);
+
 
     looper = new p5.SoundLoop();
 
-    filter = new p5.BandPass();     
+    let filter = new p5.filter(bandpass)   
 };
     
 function rec(){
@@ -105,21 +103,9 @@ function loops(){
     if (stopLoopButton.mousePressed()) {
         looper.stop();
     }
+    looper.connect(filter)
 };
 
-function compassFilter(){
-    looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
-    looper.connect(filter);
-    looper.start();
-
-};
-
-function toggleCompassFilter(){
-    looper = new p5.SoundLoop(function(timefromnow){soundX.play(1)},1);
-    looper.connect(filter);
-    looper.start();
-    filter.toggle();
-};
 
 function stopLoops(){
  /*   if (looper.isPlaying) {*/
@@ -131,22 +117,25 @@ function stopLoops(){
 };
 
 function draw(){
+    text(getAudioContext().state, width/2, height/2);
+
+    function mousePressed() {
+        userStartAudio();
+    }
+
     backgroundColor.setRed(128 + 128 * sin(millis() / 1000));
     background(backgroundColor);
     playButton.position (displayWidth/2,displayHeight/2+60);
     recordButton.position(displayWidth/2-45, displayHeight/2);
     loopButton.position (displayWidth/2-45,displayHeight/2+120);
     stopLoopButton.position (displayWidth/2+45,displayHeight/2+120);
-    compassFilterButton.position (displayWidth/2-45,displayHeight/2+180);
-    toggleCompassFilterButton.position (displayWidth/2+45,displayHeight/2+180);
     
 
-   /* let stringCompass = JSON.stringify(compassHeading)
+let stringCompass = JSON.stringify(compassHeading)
     console.log(stringCompass);
-    freq = 15000 
-    /* stringCompass*40+800 */
-    text(stringCompass, displayWidth/2-90, displayHeight/2+90);
-    text(freq, displayWidth/2+120, displayHeight/2+90);
+    text(stringCompass, displayWidth/2+120, displayHeight/2+90);
+    
+    freq = 15000
     filter.freq(freq);
     filter.res(40);
 };
